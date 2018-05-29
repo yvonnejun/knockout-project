@@ -13,6 +13,6 @@ app.use('/resources', express.static('./resources'));
 //   res.end("hello nodejs");
 
 // });
-var server = app.listen(8082, function () {
-  console.log('Server start port:8082');
+var server = app.listen(8083, function () {
+  console.log('Server start port:8083');
 });

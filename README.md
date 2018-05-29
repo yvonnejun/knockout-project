@@ -1,4 +1,12 @@
-# knockout-demo
+# knockout-project
+
+# iframe嵌套多页版ko项目框架
+
+ # <div id="main">
+   # <iframe id="iframemain" src="" frameborder="0" style="width:100%;height:768px;"></iframe>
+ # </div>
+
+
 # node.js -- server.js
   # 启动命令：node server.js或npm run start
   # 依赖：http-proxy-middleware和express两个模块，使用server.js启动服务前需要安装
@@ -10,7 +18,7 @@
    # var app = express();
 
   #这两句:
-   # app.use('/', express.static('./views'));--用来指定服务访问页面文件的指定根目录，访问写法是：localhost:8082/index.html--实际上index.html是在views/目录下的
+   # app.use('/', express.static('./views'));--用来指定服务访问页面文件的指定根目录，访问写法是：localhost:8083/index.html--实际上index.html是在views/目录下的
    # app.use('/resources', express.static('./resources')); --那这个就是资源加载目录的指定了
 
   # 下面这一句就是启动服务的代码了，并发送给客户端响应头和响应体
@@ -20,8 +28,8 @@
    # });
 
   # 最后一句就是配置监听端口了
-   # var server = app.listen(8082, function () { --这里的8082就是浏览器启动服务用的项目端口，用法：localhost:8082/index.html
-   # console.log('Server start port:8082');
+   # var server = app.listen(8083, function () { --这里的8083就是浏览器启动服务用的项目端口，用法：localhost:8083/index.html
+   # console.log('Server start port:8083');
    # });
 
 

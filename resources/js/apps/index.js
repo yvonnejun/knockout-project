@@ -26,7 +26,7 @@ require([
     var vm = {
         projectName: 'knockout项目'
     };
-    layer.msg('hello');
+    // layer.msg('hello');
     ko.applyBindings(vm);
     // $('#target').html(require("text!目标按钮对应的页面.html"));
     // 加载顶部导航栏
@@ -40,18 +40,23 @@ require([
     // 加载主区域内容
     init();
     function init() {
-        utils.loadPage('demo2');
+        // utils.loadPage('demo2');
+        $('#iframemain').attr('src', '/apps/example2-simple-bindings.html');
     }
 
-    $('.layui-nav-item').find('a').click(function () {
+    $('.layui-nav-item .layui-nav-child').find('a').click(function () {
         //console.log($(this).data('url'));
-        var path = $(this).data('url');
+        var path = $(this).data('url') + '.html';
         //console.log(require('text!../../components/'+path+'/'+path+'.html'));
         // var module = require('text!../../components/'+path+'/'+path+'.html'); // 实测这样写也是有效的
         // console.log(require('text!../../components/demo2/demo2.html'));
-        utils.loadPage(path);
+        // utils.loadPage(path);
+        $('#iframemain').attr('src', path);
     });
-
+    //注意：导航 依赖 element 模块，否则无法进行功能性操作
+    layui.use('element', function(){
+        var element = layui.element;
+    });
     
 })
 

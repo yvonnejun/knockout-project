@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script type="text/javascript" src="../js/jquery-2.1.0.min.js"></script>
-    <script type="text/javascript" src="../js/knockout-3.1.0.debug.js" charset="UTF-8"></script>
+    <link type="text/css" rel="stylesheet" href="/resources/css/example3-simple-bindings.css">
     <title>ko-simple-bindings</title>
 </head>
 <body>
@@ -16,16 +15,5 @@
     <p>user age : <input type="text" data-bind="value: user.age"></p>
     <p>user do : <input type="text" data-bind="value: user.do"></p>
 </body>
-<script type="text/javascript">
-function Users() {
-    this.FirstName = 'mery'
-    this.user = {
-        name: 'Lucy',
-        age: 25,
-        do: 'Lucy do something'
-    }
-    this.LastName = 'ling'
-}
-ko.applyBindings(new Users());
-</script>
+<script src="../../resources/js/libs/require.js" data-main="../../resources/js/apps/example3-simple-bindings"></script>
 </html>

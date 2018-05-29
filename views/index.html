@@ -11,30 +11,80 @@
     <link type="text/css" rel="stylesheet" href="/resources/css/index.css">
 </head>
 <body>
-    <div id="header"></div>
+    <!-- <div id="header"></div> -->
     <!-- <div id="slider-left"></div> -->
-     <!-- 注意：把左边栏那一段代码拿出来作为模板，动态加载到index.html是不可行的，会导致左边栏代码不可用。 -->
-     <ul class="layui-nav layui-nav-tree layui-nav-side">
-        <li class="layui-nav-item layui-nav-itemed">
-        <a href="javascript:;">默认展开</a>
-        <dl class="layui-nav-child">
-            <dd><a href="javascript:;" data-url="demo1">demo1</a></dd>
-            <dd><a href="javascript:;" data-url="demo2">demo2</a></dd>
-            <dd><a href="">跳转</a></dd>
-        </dl>
-        </li>
-        <li class="layui-nav-item">
-        <a href="javascript:;">解决方案</a>
-        <dl class="layui-nav-child">
-            <dd><a href="">移动模块</a></dd>
-            <dd><a href="">后台模版</a></dd>
-            <dd><a href="">电商平台</a></dd>
-        </dl>
-        </li>
-        <li class="layui-nav-item"><a href="">产品</a></li>
-        <li class="layui-nav-item"><a href="">大数据</a></li>
-    </ul>
-    <div id="main"></div>
+    <div class="header">
+        <ul class="layui-nav" lay-filter="">
+            <li class="layui-nav-item"><a href="javascript:;">最新活动</a></li>
+            <li class="layui-nav-item layui-this"><a href="javascript:;">产品</a></li>
+            <li class="layui-nav-item"><a href="javascript:;">大数据</a></li>
+            <li class="layui-nav-item">
+                <a href="javascript:;">解决方案</a>
+                <dl class="layui-nav-child"> <!-- 二级菜单 -->
+                <dd><a href="javascript:;">移动模块</a></dd>
+                <dd><a href="javascript:;">后台模版</a></dd>
+                <dd><a href="javascript:;">电商平台</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item"><a href="javascript:;">社区</a></li>
+        </ul>
+        <!-- 图片和徽章 -->
+        <ul class="layui-nav float-right">
+            <li class="layui-nav-item">
+                <a href="javascript:;">控制台<span class="layui-badge">9</span></a>
+            </li>
+            <li class="layui-nav-item">
+                <a href="javascript:;">个人中心<span class="layui-badge-dot"></span></a>
+            </li>
+            <li class="layui-nav-item">
+                <a href="javascript:;"><img src="http://t.cn/RCzsdCq" class="layui-nav-img">我</a>
+                <dl class="layui-nav-child">
+                <dd><a href="javascript:;">修改信息</a></dd>
+                <dd><a href="javascript:;">安全管理</a></dd>
+                <dd><a href="javascript:;">退了</a></dd>
+                </dl>
+            </li>
+        </ul>
+
+    </div>
+    <div class="slider-left">
+        <!-- 注意：把左边栏那一段代码拿出来作为模板，动态加载到index.html是不可行的，会导致左边栏代码不可用。 -->
+        <ul class="layui-nav layui-nav-tree layui-nav-side">
+            <li class="layui-nav-item layui-nav-itemed">
+                <a href="javascript:;">默认展开</a>
+                <dl class="layui-nav-child">
+                    <dd><a href="javascript:;" data-url="/apps/example2-simple-bindings">简单的绑定2</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item">
+                <a href="javascript:;">简单的绑定</a>
+                <dl class="layui-nav-child">
+                    <dd><a href="javascript:;" data-url="/apps/example1-simple-bindings">简单的绑定1</a></dd>
+                    <dd><a href="javascript:;" data-url="/apps/example2-simple-bindings">简单的绑定2</a></dd>
+                    <dd><a href="javascript:;" data-url="/apps/example3-simple-bindings">简单的绑定3</a></dd>
+                    <dd><a href="javascript:;" data-url="/apps/example4-simple-bindings">简单的绑定4</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item">
+                <a href="javascript:;">计算属性</a>
+                <dl class="layui-nav-child">
+                    <dd><a href="javascript:;" data-url="/apps/example7-compute1">计算属性1</a></dd>
+                    <dd><a href="javascript:;" data-url="/apps/example8-compute2">计算属性2</a></dd>
+                    <dd><a href="javascript:;" data-url="/apps/example9-compute3">计算属性3</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item">
+                <a href="javascript:;">数据监控</a>
+                <dl class="layui-nav-child">
+                    <dd><a href="javascript:;" data-url="/apps/example5-subscribe">数据监控1</a></dd>
+                    <dd><a href="javascript:;" data-url="/apps/example6-dispose">数据监控2</a></dd>
+                </dl>
+            </li>
+        </ul>
+    </div>
+    <div id="main">
+        <iframe id="iframemain" src="" frameborder="0" style="width:100%;height:768px;"></iframe>
+    </div>
     <!-- <div class="footer" id="footer"></div> -->
 </body>
 <script src="../resources/js/libs/require.js" data-main="../resources/js/apps/index"></script>
