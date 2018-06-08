@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>号纸打印</title>
+	<!-- <link type="text/css" rel="stylesheet" href="../resources/css/print.css"> -->
+	<style>
+		.pos1-parent {
+			position: relative;
+			left:-325px;
+			top:-120px;
+		}
+	</style>
+	<script language="javascript" src="../resources/js/apps/LodopFuncs.js"></script>
+</head>
+<body>
+	<div class="wrap" id="div1_2_3" style="position: relative;margin: 0 auto;width: 100%;min-width: 1024px; background:#f5f5f5;">
+		<div class="setting-wrap" id="div1" style="background: #ffffff;margin: 10px;padding: 25px;height: 550px; min-width: 1024px;font-size: 12px;">
+			<div style="position: relative;left:-325px;top:-120px;height: 495px;padding-left: 100px;width: 100%;" class="setting-right-wrap col-xs-5">
+				<!-- <div class="module-title">
+					<span class="title-text">预览效果</span>                
+				</div> -->
+	
+				<div class="preview-wrap" style="color: white;width: 285px;height: 393px;margin-top: 20px;background: url('../resources/img/preview-bg.png');padding: 20px 35px;box-shadow: 0 0 20px rgba(0, 0, 0, .1);">
+					<div class="title" style="position: relative;color: #333;font-size: 18px;height: 60px;text-align: left;left: -10px;">
+						<img src="../resources/img/preview_title_icon.png" style="position: relative;"/>
+						<span style="position: relative;top:-20px;">安徽省政务服务中心</span>
+					</div>
+					<div style="margin-left: -10px;margin-right: -10px;position: relative;color: #333;line-height: 25px;margin-bottom: 0;" class="row item">
+						<span style="padding-left: 10px;padding-right: 0;width: 25%;" class="col-xs-3 label">预约编号：</span>
+						<span style="padding: 0;width: 66.66666667%;" class="col-xs-8 value">  </span>
+					</div>
+					<div style="margin-left: -10px;margin-right: -10px;position: relative;color: #333;line-height: 25px;margin-bottom: 0;" class="row item">
+						<span style="padding-left: 10px;padding-right: 0;width: 25%;" class="col-xs-3 label">您的号码：</span>
+						<span style="padding: 0;width: 66.66666667%;" class="col-xs-8 value">0001</span>
+					</div>
+					<div style="margin-left: -10px;margin-right: -10px;position: relative;color: #333;line-height: 25px;margin-bottom: 0;" class="row item">
+						<span style="padding-left: 10px;padding-right: 0;width: 25%;" class="col-xs-3 label">办理业务：</span>
+						<span style="padding: 0;width: 66.66666667%;" class="col-xs-8 value">
+							<span>省教育厅</span>
+							<br>
+							<span style="width:200px;word-wrap: break-word;margin-left: 95px;">事项名事项名事项名事项</span>
+						</span>
+					</div>
+					<div style="margin-left: -10px;margin-right: -10px;position: relative;color: #333;line-height: 25px;margin-bottom: 0;" class="row item">
+						<span style="padding-left: 10px;padding-right: 0;width: 25%;" class="col-xs-3 label">办理窗口：</span>
+						<span style="padding: 0;width: 66.66666667%;" class="col-xs-8 value">
+							<span>窗口 1 , 2</span>
+							<br>
+							<span style="margin-left: 95px;">1号办事大厅</span>
+						</span>
+					</div>
+					<div style="margin-left: -10px;margin-right: -10px;position: relative;color: #333;line-height: 25px;margin-bottom: 0;" class="row item">
+						<span style="padding-left: 10px;padding-right: 0;width: 25%;" class="col-xs-3 label">等待人数：</span>
+						<span style="padding: 0;width: 66.66666667%;" class="col-xs-8 value">2</span>
+					</div>
+					<div style="height: 25px;color: #666;line-height: 25px;" class="tip">取票后请等待，我们将尽快为您服务</div>
+	
+					<!-- <div class="qr-code-wrap">
+						<img class="qr-code" src="./img/QRCode.png"/>
+						<div class="item">扫一扫了解排队信息</div>
+					</div> -->
+	
+					<div style="margin-top: 20px;line-height: 20px;color: #999;font-size: 12px;" class="bottom-tip">
+						<div>2018-04-12  09:30:28</div>
+						<div>
+							<span>温馨提示：叫号后请及时到窗口办理业务,</span>
+							<br>
+							<span>过号请重新取号</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="print-control">
+		<p>1、打印机设置：
+			<input type="radio" id="Radio1" name="RadioS1" checked>默认打印机                         
+			<input type="radio" id="Radio2" name="RadioS1" onclick="CreatePrinterList()">指定打印机:                  
+			<select id="PrinterList" size="1"></select> 
+		</p>      
+										
+		<p>2、纸张类型设置：
+			<input type="radio" id="Radio3" name="RadioS2" checked >不指定纸张                         
+			<input type="radio" id="Radio4" name="RadioS2" onclick="CreatePagSizeList()">指定纸张:<select id="PagSizeList" size="1"></select>
+		</p> 
+		
+		<p>3、设置默认打印机：
+			<button onclick="SetPrint7()" style="padding: 10px 20px;">设置默认打印机</button>
+		</p>
+
+		<p>4、打印：
+			<b>直接打印：<button onclick="prn4_preview()" style="padding: 10px 20px;">直接打印</button> 
+		</p>
+	</div>
+<script>
+	 var LODOP; //声明为全局变量    
+	    
+        function getSelectedPageSize(){
+            if (document.getElementById("Radio4").checked) 
+            return document.getElementById("PagSizeList").value;
+            else return ""; 		
+        };	
+        function CreatePrinterList(){ // --指定打印机
+            if (document.getElementById('PrinterList').innerHTML!="") return;
+            LODOP=getLodop(); 
+            var iPrinterCount=LODOP.GET_PRINTER_COUNT();
+            for(var i=0;i<iPrinterCount;i++){
+                console.log(iPrinterCount[i]);
+    
+                   var option=document.createElement('option');
+                   option.innerHTML=LODOP.GET_PRINTER_NAME(i);
+                   option.value=i;
+                document.getElementById('PrinterList').appendChild(option);
+            };	
+        };
+        function Print5() {		
+            LODOP=getLodop();  
+            LODOP.PRINT_INIT("");	
+            // LODOP.SET_PRINT_PAGESIZE(1,2100,2970,"A4");
+            AddPrintContent("10101010101010","郭德强");
+              LODOP.PRINT();	
+            // LODOP.PRINT_INIT("");	  	
+            // LODOP.SET_PRINT_PAGESIZE(1,document.getElementById('W1').value,document.getElementById('H1').value,"A3");
+            // AddPrintContent("10101010101012","于谦");
+              // LODOP.PRINT();		
+        };		
+        function getSelectedPrintIndex(){ // 选中的打印机的值返回出去，供默认打印机重新设置
+            if (document.getElementById("Radio2").checked) 
+                return document.getElementById("PrinterList").value;
+            else 
+                return -1; 		
+        };
+        function SetPrint7() { // --3、选择好打印机后，设置成默认打印机
+            LODOP=getLodop();  
+            LODOP.PRINT_INIT("");
+            if (LODOP.CVERSION) CLODOP.On_Return=function(TaskID,Value){alert(Value);};
+            var strResult=LODOP.SET_PRINT_MODE("WINDOW_DEFPRINTER",getSelectedPrintIndex()); // getSelectedPrintIndex()执行后就是上面下拉框选中的打印机对应的value值
+            if (!LODOP.CVERSION) alert(strResult);
+		};
+		function clearPageListChild(){ // --2.1、清除纸张列表
+			var PagSizeList =document.getElementById('PagSizeList'); 
+			while(PagSizeList.childNodes.length>0){
+				var children = PagSizeList.childNodes;	
+					for(i=0;i<children.length;i++){		
+					PagSizeList.removeChild(children[i]);	
+				};	   
+			};	   
+		}
+		function CreatePagSizeList(){ // --2、指定纸张
+			LODOP=getLodop(); 
+			clearPageListChild();
+			var strPageSizeList=LODOP.GET_PAGESIZES_LIST(getSelectedPrintIndex(),"\n");
+			var Options=new Array(); 
+			Options=strPageSizeList.split("\n");       
+			for (i in Options)    
+			{    
+				var option=document.createElement('option');   
+				option.innerHTML=Options[i];
+				option.value=Options[i];
+				document.getElementById('PagSizeList').appendChild(option);
+			}  
+		}	
+    
+    
+        function prn4_preview() { // 4、直接打印--调用打印html的方法Prnt_Oneform
+            LODOP=getLodop();  	
+            Prnt_Oneform("div1");	
+            // Prnt_Oneform("div2");	
+            // Prnt_Oneform("div3");			
+        };
+        function Prnt_Oneform(strID) {	 // 打印html的函数
+            LODOP.PRINT_INIT("打印控件功能演示_Lodop功能_分页输出四");
+            LODOP.ADD_PRINT_HTM(88,200,350,600,document.getElementById(strID).innerHTML);
+            LODOP.PRINT();	
+        };
+        function prn6_design() {
+            LODOP=getLodop();  	
+            LODOP.PRINT_INIT("打印控件功能演示_Lodop功能_分页输出六");
+            LODOP.ADD_PRINT_HTM(88,150,450,150,"<!DOCTYPE html>"+document.getElementsByTagName("html")[0].innerHTML);
+            LODOP.SET_PRINT_STYLEA(0,"TableRowThickNess",25);
+            LODOP.PRINT_DESIGN();	
+        };
+</script>
+<script src="../resources/js/libs/require.js" data-main="../resources/js/apps/print"></script>
+</body>
+</html>
