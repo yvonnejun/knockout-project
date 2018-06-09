@@ -2076,7 +2076,8 @@ var requireConfig = {
         ko: '../libs/knockout-3.4.2',
         text: '../libs/text',
         components: '../../components',
-        utils: '../plugins/utils'
+        utils: '../plugins/utils',
+        hammer: '../plugins/hammer.min'
 	},
 	
 	shim: {
@@ -2089,6 +2090,9 @@ var requireConfig = {
         },
         utils: {
             exports: 'utils'
+        },
+        hammer: {
+            exports: 'hammer'
         }
 	}
 };
