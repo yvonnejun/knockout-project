@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WEB打印控件LODOP的样例四十五:获得打印状态及控制打印</title>
+
+<script language="javascript" src="LodopFuncs.js"></script>
+</head>
+<body>
+
+<p>1、先点<a href="javascript:MyPrint()">执行打印</a>获得该打印的JOB代码：<input type="text" id="T1" size="48"><br>
+</p>
+
+1、<input type="button" value="获得该JOB当前打印状态代码:" 
+onclick="getStateCode()"><input type="text" id="T4" size="48">(含义见后面解释)<br>
+
+2、<input type="button" value="获得该JOB当前打印状态描述:" 
+onclick="document.getElementById('T5').value=getStatusValue('PRINT_STATUS_TEXT',document.getElementById('T1').value,document.getElementById('T5'))"><input type="text" id="T5" size="48"><br>
+ 
+<script language="javascript" type="text/javascript">   
+	var LODOP,P_ID=""; //声明为全局变量 
+	function getStateCode() {
+		var stateCode = getStatusValue('PRINT_STATUS_ID',document.getElementById('T1').value,document.getElementById('T4'))
+		document.getElementById('T4').value = stateCode;
+		console.log(stateCode);
+	}
+	function getStatusValue(ValueType,ValueIndex,oResultOB){
+		LODOP=getLodop(); 
+		if (LODOP.CVERSION) LODOP.On_Return=function(TaskID,Value){oResultOB.value=Value;};
+		var strResult=LODOP.GET_VALUE(ValueType,ValueIndex);
+		if (!LODOP.CVERSION) return strResult; else return "";
+	};
+	function MyPrint(){
+		LODOP=getLodop();  
+		LODOP.PRINT_INIT("打印控件功能演示_Lodop功能_获得打印状态1");
+		LODOP.ADD_PRINT_TEXT(50,231,260,39,"打印的第一页内容");
+		LODOP.NEWPAGEA();
+		LODOP.ADD_PRINT_TEXT(50,231,260,39,"打印的第二页内容");
+		LODOP.SET_PRINT_MODE("CATCH_PRINT_STATUS",true);
+		if (LODOP.CVERSION) {
+			LODOP.On_Return=function(TaskID,Value){document.getElementById('T1').value=Value;};
+			LODOP.PRINT();
+			return;
+		} else document.getElementById('T1').value=LODOP.PRINTA();
+	};	
+	
+	
+	//从JOB代码找出打印机序号：
+	function GetPrinterIDfromJOBID(strJOBID){
+		var intPos=strJOBID.indexOf("_");
+		if (intPos<0) {return strJOBID;} else {return strJOBID.substr(0,intPos);}
+	}
+	
+	//如下过程本例没用到，但或许对您有用：
+	function getStatuMessage(statusID) { 
+		var messages="";
+		if (statusID & 1) messages += "已暂停 -";
+		if (statusID & 2) messages += "错误 -";
+		if (statusID & 4) messages += "正删除 -";
+		if (statusID & 8) messages += "进入队列 -";
+		if (statusID & 16) messages += "正在打印 -";
+		if (statusID & 32) messages += "脱机 -";
+		if (statusID & 64) messages += "缺纸 -";
+		if (statusID & 128) messages += "打印结束 -";
+		if (statusID & 256) messages += "已删除 -";
+		if (statusID & 512) messages += "堵了 -";
+		if (statusID & 1024) messages += "用户介入 -";
+		if (statusID & 2048) messages += "正在重新启动 -";
+		return messages;
+	}
+</script> 
+ 
+</body>
+</html>

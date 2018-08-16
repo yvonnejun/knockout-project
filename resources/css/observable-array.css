@@ -1,0 +1,12 @@
+.buttons {
+  position: relative;
+  left: 110px;
+}
+/**
+* layui库样式调整
+**/
+/*layui-layer layui-layer-dialog layui-layer-border layui-layer-msg layui-layer-hui*/
+.layui-layer-msg { /*消息提示框msg过于偏下为360，向上调整为140*/
+  top: 140px!important;
+}
+

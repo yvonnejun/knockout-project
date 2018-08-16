@@ -17,10 +17,6 @@
 	<div class="wrap" id="div1_2_3" style="position: relative;margin: 0 auto;width: 100%;min-width: 1024px; background:#f5f5f5;">
 		<div class="setting-wrap" id="div1" style="background: #ffffff;margin: 10px;padding: 25px;height: 550px; min-width: 1024px;font-size: 12px;">
 			<div style="position: relative;left:-325px;top:-120px;height: 495px;padding-left: 100px;width: 100%;" class="setting-right-wrap col-xs-5">
-				<!-- <div class="module-title">
-					<span class="title-text">预览效果</span>                
-				</div> -->
-	
 				<div class="preview-wrap" style="color: white;width: 325px;height: 393px;margin-top: 20px;background: url('../resources/img/preview-bg.png');padding: 20px 35px;box-shadow: 0 0 20px rgba(0, 0, 0, .1);">
 					<div class="title" style="position: relative;color: #333;font-size: 18px;height: 40px;text-align: left;left: -10px;">
 						<img src="../resources/img/preview_title_icon.png"/>
@@ -55,11 +51,6 @@
 						<span style="padding: 0;width: 66.66666667%;" class="col-xs-8 value">2</span>
 					</div>
 					<div style="height: 25px;color: #666;line-height: 15px;font-size: 13px;" class="tip">取票后请等待，我们将尽快为您服务</div>
-					<!-- <div class="qr-code-wrap">
-						<img class="qr-code" src="./img/QRCode.png"/>
-						<div class="item">扫一扫了解排队信息</div>
-					</div> -->
-	
 					<div style="line-height: 20px;color: #999;font-size: 12px;border-top: 1px solid;" class="bottom-tip">
 						<div style="text-align: center;text-indent:-2.4em">2018-04-12  09:30:28</div>
 						<div>
@@ -79,10 +70,10 @@
 			<select id="PrinterList" size="1"></select> 
 		</p>      
 										
-		<!-- <p>2、纸张类型设置：
+		<p>2、纸张类型设置：
 			<input type="radio" id="Radio3" name="RadioS2" checked >不指定纸张                         
 			<input type="radio" id="Radio4" name="RadioS2" onclick="CreatePagSizeList()">指定纸张:<select id="PagSizeList" size="1"></select>
-		</p>  -->
+		</p> 
 		
 		<p>3、设置默认打印机：
 			<button onclick="SetPrint7()" style="padding: 10px 20px;">设置默认打印机</button>
@@ -93,7 +84,6 @@
 		</p>
 		<p>5、打印预览
 			<button onclick="myPreview1()" style="padding: 10px 20px;">打印预览</button>
-			<!-- <button onclick="myPreview2()" style="padding: 10px 20px;">打印预览2</button> -->
 		</p>
 	</div>
 <script>
@@ -118,7 +108,7 @@
             LODOP=getLodop(); 
             var iPrinterCount=LODOP.GET_PRINTER_COUNT();
             for(var i=0;i<iPrinterCount;i++){
-                console.log(iPrinterCount[i]);
+                console.log(LODOP.GET_PRINTER_NAME(i));// Brother HL-2260 Printer
     
                    var option=document.createElement('option');
                    option.innerHTML=LODOP.GET_PRINTER_NAME(i);

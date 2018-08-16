@@ -1,6 +1,65 @@
 function Utils() { }
 Utils.prototype = {
     constructor: Utils,
+    /**
+     * 渲染layui的select下拉框组件
+     * @param context 上下文select对象
+     * @param form layui的form对象
+     * @param data 数组数据对象
+     * 
+     * */ 
+    renderSelect: function(context, form, data) {
+        country.innerHTML = '';
+        for(var i = 0, len = data.length; i < len; i++) {
+            var option = document.createElement('option');
+            option.setAttribute('value', data[i].value);
+            option.innerHTML = data[i].country;
+            context.appendChild(option);
+            form.render('select');
+        }
+    },
+    /**
+     * flyui--弹出框dialog封装
+    */
+    dialog: {
+        // 错误弹出层
+        error: function(message) {
+            layer.open({
+                content:message,
+                icon:2,
+                title : '错误提示',
+            });
+        },
+        //成功弹出层
+        success : function(message,url) {
+            layer.open({
+                content : message,
+                icon : 1,
+                yes : function(){
+                    location.href=url;
+                },
+            });
+        },
+        // 确认弹出层
+        confirm : function(message, url) {
+            layer.open({
+                content : message,
+                icon:3,
+                btn : ['是','否'],
+                yes : function(){
+                    location.href=url;
+                },
+            });
+        },
+        //无需跳转到指定页面的确认弹出层
+        toconfirm : function(message) {
+            layer.open({
+                content : message,
+                icon:3,
+                btn : ['确定'],
+            });
+        },
+    },
     isPhoneValid: function (phone) { //匹配手机号码
         var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
         if (myreg.test(phone)) {

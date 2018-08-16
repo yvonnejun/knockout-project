@@ -41,7 +41,7 @@ require([
     init();
     function init() {
         // utils.loadPage('demo2');
-        $('#iframemain').attr('src', '/apps/example2-simple-bindings.html');
+        $('#iframemain').attr('src', '/apps/observable-array/observable-array.html');
     }
 
     $('.layui-nav-item .layui-nav-child').find('a').click(function () {

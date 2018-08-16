@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link type="text/css" rel="stylesheet" href="/resources/css/reset.css">
+    <link type="text/css" rel="stylesheet" href="/resources/css/common.css">
+    <link type="text/css" rel="stylesheet" href="/resources/js/libs/layui/css/layui.css">
+    <link type="text/css" rel="stylesheet" href="/resources/css/observable-array.css">
+    <title>ko-数组绑定</title>
+</head>
+<body>
+    <form class="layui-form" action="" style="width:600px;">
+        <div class="layui-form-item">
+            <label class="layui-form-label">选择框</label>
+            <div class="layui-input-block">
+                <!-- countries虽然是obserable数据，但是也不用执行来产生数据，原理就相当于click：后面的方法一样只用写方法名即可执行处结果 -->
+                <!-- 去掉layui的样式，countries数据内容就出来了，看来layui的下拉框样式影响了ko数组的展示,因为用layui展示的下拉框实际上修改了select的dom结构(内含input而不是option),导致ko数据不识别 -->
+                <!-- <select id="country" name="country" data-bind="options:countries"> -->
+                <select id="country" name="country">
+                    <!-- <option value=""></option>
+                    <option value="0">北京</option>
+                    <option value="1">上海</option>
+                    <option value="2">广州</option>
+                    <option value="3">深圳</option>
+                    <option value="4">杭州</option> -->
+                </select>
+            </div>
+        </div>
+    </form>
+    <div class="buttons">
+        <button data-bind="click: event.add" class="layui-btn">添加</button>
+        <button data-bind="click: event.del" class="layui-btn layui-btn-danger">删除</button>
+        <button data-bind="click: event.modify" class="layui-btn layui-btn-normal">修改</button>
+        <button data-bind="click: event.query" class="layui-btn layui-btn-primary">查找</button>
+        <button data-bind="click: event.slice" class="layui-btn layui-btn-warm">截取</button>
+    </div>
+</body>
+<script src="../../resources/js/libs/require.js" data-main="../../resources/js/apps/observable-array/observable-array"></script>
+</html>
